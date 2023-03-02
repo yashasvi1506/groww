@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form</title>
+    <link rel="stylesheet" href="form.css">
+    <script>
+        function printError(elemId, hintMsg) {
+            document.getElementById(elemId).innerHTML = hintMsg;
+        }
+        function validate() {
+            var mail = document.getElementById("text1").value;
+            if (mail == "") {
+                printError("emailErr", "Please enter your email address");
+            } else {
+                // Regular expression for basic email validation
+                var regex = /^\S+@\S+\.\S+$/;
+                if (regex.test(mail) === false) {
+                    printError("emailErr", "Please enter a valid email address");
+                } else {
+                    printError("emailErr", "");
+                }
+            }
+        };
+    </script>
+</head>
+
+<body class="IndexBody">
+    <div class="LoginAndRegisterContainer">
+        <div class="LoginContainer">
+            <div class="LoginBody">
+                <div class="LoginBodyLeft">
+                    <h1 class="LoginBodyLefth2"> Simple, Free Investing.</h1>
+                    <div class="LoginBodyLeftBottom">
+                        <div class="LoginBodyLeftBottomAnimation"></div>
+                        <h2 class="LoginBodyLeftBottomText">
+                        </h2>
+                    </div>
+                </div>
+                <div class="LoginBodyRight">
+                    <h2 class="LoginBodyRighth1">Welcome To Groww</h2>
+                    <div class="LoginBodyRightGoogleConTainer">
+                        <div class="oginBodyRightGoogleConTainerImg">
+                            <img src="google-icon.svg">
+                        </div>
+                        <div class="LoginBodyRightGoogleConTainerText"> Continue with Google</div>
+                    </div>
+                    <div class="MainLinesection">
+                        <div class="HorizonalLIne">
+                        </div>
+                        <div class="ORtext"> or </div>
+                        <div class="HorizonalLIne"></div>
+                    </div>
+                    <div class="EmailContainer">
+                        <div class="EmailText"> Your Email Address</div>
+                        <div class="InputTextBox"> <input type="text" size="40px" id="text1" /></div>
+                        <p class="ErrorTextBox" id="emailErr"></p>
+
+                    </div>
+                    <div class="ContinueButton"> <input type="button" value="Continue" onclick="validate()"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
